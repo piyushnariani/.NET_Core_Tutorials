@@ -9,7 +9,7 @@ namespace DatingApp.API.Data
 {
     public class AuthRepository: IAuthRepository
     {
-        public readonly DataContext _db;
+        private readonly DataContext _db;
         public AuthRepository(DataContext db)
         {
             _db = db;
