@@ -25,11 +25,6 @@ namespace DatingApp.API.Data
             _db.Remove(entity);
         }
 
-        public async Task<bool> SaveAll()
-        {
-            return await _db.SaveChangesAsync() > 0;
-        }
-
         public async Task<IEnumerable<User>> GetUsers()
         {
             var users = await _db.Users.Include(u => u.Photos).ToListAsync();
@@ -40,6 +35,11 @@ namespace DatingApp.API.Data
         {
             var user = await _db.Users.Include(u => u.Photos).FirstOrDefaultAsync(u => u.Id == id);
             return user;
+        }
+        
+        public async Task<bool> SaveAll()
+        {
+            return await _db.SaveChangesAsync() > 0;
         }
     }
 }

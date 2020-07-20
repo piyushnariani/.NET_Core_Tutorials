@@ -6,7 +6,7 @@ using DatingApp.API.Models;
 
 namespace DatingApp.API.Data
 {
-    interface IDatingRepository
+    public interface IDatingRepository
     {
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
